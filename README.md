@@ -1,160 +1,88 @@
-# 📝 Task Manager
+# 📝 To-Do List Application
 
-A modern and user-friendly Task Manager web application that helps users organize, track, and manage their daily tasks efficiently. The application allows users to create, update, complete, and delete tasks while maintaining an intuitive and responsive interface.
+A simple and user-friendly **To-Do List web application** built using **Flask**, **SQLite**, **HTML**, **CSS**, and **JavaScript**. The application helps users organize their daily tasks by allowing them to add, manage, and track their to-do items through an easy-to-use web interface.
 
----
+## 🚀 Features
 
-## 📌 Project Overview
-
-Task Manager is designed to simplify task management by providing an easy-to-use platform where users can keep track of their daily activities. It improves productivity by allowing users to organize tasks, monitor progress, and manage their workload effectively.
-
----
-
-## ✨ Features
-
-- ➕ Add new tasks
-- ✏️ Edit existing tasks
-- ✅ Mark tasks as completed
-- 🗑️ Delete tasks
-- 📋 View all tasks
-- 📱 Responsive user interface
-- 🎯 Simple and clean design
-
----
+* Add new tasks
+* View all tasks
+* Store tasks in an SQLite database
+* Simple and responsive user interface
+* Lightweight and easy to use
 
 ## 🛠️ Technologies Used
 
-### Frontend
-- HTML5
-- CSS3
-- Bootstrap
-- JavaScript
+* **Backend:** Python, Flask
+* **Frontend:** HTML, CSS, JavaScript
+* **Database:** SQLite
 
-### Backend
-- Python
-- Flask
-
-### Database
-- SQLite
-
----
-
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```text
-task-manager/
-│── static/
-│   ├── css/
-│   ├── js/
-│   └── images/
-│
+to-do-list/
+│── app.py
+│── database.db
 │── templates/
 │   ├── index.html
-│   ├── add_task.html
-│   ├── edit_task.html
-│   └── base.html
-│
-│── app.py
-│── requirements.txt
-│── README.md
-│── database.db
+│   └── static/
+│       ├── style.css
+│       └── script.js
 ```
 
----
+## ⚙️ Installation
 
-## 🚀 Installation
-
-### 1. Clone the repository
+1. Clone the repository:
 
 ```bash
-git clone https://github.com/AthiraR2002/task-manager.git
+git clone https://github.com/your-username/to-do-list.git
 ```
 
-### 2. Navigate to the project folder
+2. Navigate to the project folder:
 
 ```bash
-cd task-manager
+cd to-do-list
 ```
 
-### 3. Create a virtual environment
-
-Windows
+3. Install Flask:
 
 ```bash
-python -m venv venv
-venv\Scripts\activate
+pip install flask
 ```
 
-Linux / macOS
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### 4. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 5. Run the application
+4. Run the application:
 
 ```bash
 python app.py
 ```
 
-### 6. Open your browser
+5. Open your browser and visit:
 
+```text
+http://127.0.0.1:5000/
 ```
-http://127.0.0.1:5000
-```
 
----
+## 🎯 Future Enhancements
 
-## 📖 How to Use
+* Edit existing tasks
+* Delete completed tasks
+* Mark tasks as completed
+* Task priority levels
+* Due date reminders
+* User authentication
+* Dark mode support
 
-1. Launch the application.
-2. Create a new task.
-3. Edit task details whenever required.
-4. Mark tasks as completed.
-5. Delete tasks that are no longer needed.
+## 📷 Screenshot
 
----
-
-## 💡 Future Enhancements
-
-- User authentication
-- Task categories
-- Task priorities
-- Due dates and reminders
-- Search and filter tasks
-- Dark mode
-- Cloud database integration
-
----
-
-## 🎯 Learning Outcomes
-
-This project helped strengthen my understanding of:
-
-- Flask web development
-- CRUD operations
-- SQLite database integration
-- HTML, CSS, and Bootstrap
-- Python programming
-- Web application development
-
----
+Add a screenshot of your application here.
 
 ## 👩‍💻 Author
 
 **Athira R**
 
-- GitHub: https://github.com/AthiraR2002
+MCA Graduate | Python & Flask Developer
 
----
+GitHub: https://github.com/your-username
 
 ## 📄 License
 
-This project is developed for learning and educational purposes.
+This project is intended for learning and educational purposes.
