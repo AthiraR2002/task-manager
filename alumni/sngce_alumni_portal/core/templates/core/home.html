@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="carousel-container">
+        <div class="carousel-images" id="carouselImages">
+            {% load static %}
+            <img src="{% static 'core/images/sngce1.jpeg' %}" alt="Campus Image 1">
+            <img src="{% static 'core/images/slide2.jpg' %}" alt="Campus Image 2">
+            <img src="{% static 'core/images/slide3.jpg' %}" alt="Campus Image 3">
+            <img src="{% static 'core/images/slide4.jpg' %}" alt="Campus Image 4">
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#10094;</button>
+        <button class="carousel-btn next" onclick="moveCarousel(1)">&#10095;</button>
+    </div>
+
+    <section class="welcome-section">
+        <div class="container">
+            <h2 class="section-title">Welcome to SNGCE</h2>
+            <div class="divider"></div>
+            <p class="intro-text">
+                Sree Narayana Gurukulam College of Engineering widely known as SNGCE is a pioneer, self-financing educational institution established in the year 2002 to impart engineering and management education with the -state - of- art amenities to the deserving candidates. It is well managed by Sree Narayana Gurukulam Charitable Trust... <a href="#" class="read-more">Readmore</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="news-events-section">
+        <div class="container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="openTab(event, 'news')">News & Events</button>
+                <button class="tab-btn" onclick="openTab(event, 'announcements')">Announcements</button>
+                <button class="tab-btn" onclick="openTab(event, 'tender')">Tender</button>
+            </div>
+            
+            <div id="news" class="tab-content active">
+                <div class="news-grid">
+                    <div class="news-item">
+                        <img src="{% static 'core/images/onam.jpg' %}" alt="Onam Mood">
+                        <p>ONAM MOOD!</p>
+                    </div>
+                    <div class="news-item">
+                        <img src="{% static 'core/images/hackathon.jpg' %}" alt="Hackathon">
+                        <p>HACKATHON 2025...</p>
+                    </div>
+                    <div class="news-item">
+                        <img src="{% static 'core/images/chem-day.jpg' %}" alt="Chemistry Day">
+                        <p>DEPARTMENT OF...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="announcements" class="tab-content">
+                <p>No announcements at this time.</p>
+            </div>
+
+            <div id="tender" class="tab-content">
+                <p>No tenders at this time.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners-section">
+        <div class="container">
+            <img src="{% static 'core/images/partners.png' %}" alt="Partners" class="partners-image">
+        </div>
+    </section>
+{% endblock %}

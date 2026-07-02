@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h1>My Inbox</h1>
+    <ul>
+    {% for message in latest_messages %}
+        <li>
+            {% if message.sender == request.user %}
+                <p>To: {{ message.receiver.username }}</p>
+            {% else %}
+                <p>From: {{ message.sender.username }}</p>
+            {% endif %}
+            <p>{{ message.body }}</p>
+            <small>{{ message.timestamp|date:"F d, Y, P" }}</small>
+        </li>
+    {% empty %}
+        <p>Your inbox is empty.</p>
+    {% endfor %}
+    </ul>
+{% endblock %}

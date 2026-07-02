@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="login-container">
+        <h1>Login to SNGCE Alumni Portal</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+        <p>
+            Don't have an account? <a href="{% url 'register_student' %}">Register as a student</a> or
+            <a href="{% url 'register_alumni' %}">Register as an alumni</a>.
+        </p>
+    </div>
+{% endblock %}

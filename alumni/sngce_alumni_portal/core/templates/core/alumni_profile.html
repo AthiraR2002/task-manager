@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h1>Alumnus Profile: {{ alumnus.username }}</h1>
+    
+    <div class="profile-details">
+        <h2>Academic Details</h2>
+        <p><strong>Batch:</strong> {{ alumnus.profile.batch_year_range|default:"Not specified" }}</p>
+        <p><strong>Department:</strong> {{ alumnus.profile.department|default:"Not specified" }}</p>
+        <p><strong>Program:</strong> {{ alumnus.profile.degree_program|default:"Not specified" }}</p>
+        
+        {% if alumnus.profile.bio %}
+            <h2>Bio/Professional Summary</h2>
+            <p>{{ alumnus.profile.bio }}</p>
+        {% endif %}
+        
+        <hr>
+        
+        {% if request.user.is_authenticated and request.user != alumnus %}
+            <a href="{% url 'compose_message' user_id=alumnus.pk %}" class="btn-primary">Send Message</a>
+        {% endif %}
+    </div>
+{% endblock %}

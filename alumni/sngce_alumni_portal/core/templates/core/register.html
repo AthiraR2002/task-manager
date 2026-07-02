@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h1>Register as a {{ user_type }}</h1>
+    <p>Fill out the details below to create your alumni account.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        {% if user_type == 'Alumni' %}
+            <h2>Alumni Details (Batch, Course, Year of Passing)</h2>
+            {{ form.as_p }} 
+        {% else %}
+            {{ form.as_p }}
+        {% endif %}
+
+        <button type="submit">Register</button>
+    </form>
+{% endblock %}

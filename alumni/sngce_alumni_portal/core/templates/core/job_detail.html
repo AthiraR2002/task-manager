@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="job-detail-container">
+        <h1>{{ job.title }}</h1>
+        <p><strong>Company:</strong> {{ job.company }}</p>
+        <p><strong>Location:</strong> {{ job.location }}</p>
+        <p class="job-description">{{ job.description }}</p>
+        <small>Posted by: {{ job.posted_by.username }} on {{ job.posted_date|date:"F d, Y" }}</small>
+        
+        <hr>
+
+        {% if request.user.is_authenticated %}
+            {% if request.user.profile.is_alumni %}
+                <p>As an alumni, you can view job applications for this post in the admin panel.</p>
+                <p>To connect with other users, use the messaging feature.</p>
+            {% else %}
+                {% if not has_applied %}
+                    <h2>Apply for this Job</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Apply Now</button>
+                    </form>
+                    <p class="connect-message">Want to connect with the alumni who posted this job? <a href="{% url 'compose_message' user_id=job.posted_by.id %}">Send a message.</a></p>
+                {% else %}
+                    <p class="already-applied-message">You have already applied for this job.</p>
+                    <p class="connect-message">You can still <a href="{% url 'compose_message' user_id=job.posted_by.id %}">send a message</a> to the alumni who posted this job.</p>
+                {% endif %}
+            {% endif %}
+        {% else %}
+            <p>Please <a href="{% url 'login' %}">log in</a> as a student to apply for this job or connect with the alumni.</p>
+        {% endif %}
+    </div>
+{% endblock %}

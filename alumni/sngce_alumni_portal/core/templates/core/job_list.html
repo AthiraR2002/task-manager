@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <div class="job-list-container">
+        <h1>Available Jobs</h1>
+        <div class="jobs-grid">
+            {% for job in jobs %}
+                <div class="job-card">
+                    <h2><a href="{% url 'job_detail' pk=job.pk %}">{{ job.title }}</a></h2>
+                    <p><strong>Company:</strong> {{ job.company }}</p>
+                    <p><strong>Location:</strong> {{ job.location }}</p>
+                    <small>Posted by: {{ job.posted_by.username }} on {{ job.posted_date|date:"F d, Y" }}</small>
+                </div>
+            {% empty %}
+                <p>No jobs have been posted yet. Check back soon!</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNGCE Alumni Portal</title>
+    
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <p>Call Us: +91-484-2450393</p>
+                <a href="#">Quick Links</a>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <a href="{% url 'home' %}" class="logo">
+                    <img src="https://sngce.ac.in/img/logos/logo.png" alt="SNGCE Logo">
+                </a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        
+                        <li><a href="{% url 'alumni_list' %}">Alumni Directory</a></li>
+                        
+                        <li><a href="{% url 'job_list' %}">Jobs</a></li>
+                        
+                        {% if request.user.is_authenticated %}
+                            
+                            {% if request.user.profile.is_alumni %}
+                                <li><a href="{% url 'job_post' %}">Post a Job</a></li>
+                            {% endif %}
+                            
+                            <li>
+                                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" style="background:none; border:none; padding:0; cursor:pointer; color:inherit; font:inherit;">
+                                        Logout
+                                    </button>
+                                </form>
+                            </li>
+                        {% else %}
+                            <li><a href="{% url 'login' %}">Login</a></li>
+                            <li><a href="{% url 'register_student' %}">Register as Student</a></li>
+                            <li><a href="{% url 'register_alumni' %}">Register as Alumni</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Sree Narayana Gurukulam College of Engineering. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="{% static 'core/js/scripts.js' %}"></script>
+
+</body>
+</html>

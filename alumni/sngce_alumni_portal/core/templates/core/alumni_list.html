@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h1>SNGCE Alumni Directory</h1>
+    <p>Connect with over 10,000 engineers and professionals from SNGCE.</p>
+
+    <div class="alumni-grid">
+    {% for user in alumni_users %}
+        <div class="alumni-card">
+            <h2>{{ user.username }}</h2>
+            <p>
+                <strong>Program:</strong> {{ user.profile.degree_program|default:"N/A" }}
+                ({{ user.profile.department|default:"N/A" }})
+            </p>
+            <p><strong>Batch:</strong> {{ user.profile.batch_year_range|default:"N/A" }}</p>
+            
+            <a href="{% url 'alumni_profile' pk=user.pk %}" class="btn-primary">View Profile</a>
+            
+            {% if request.user.is_authenticated and request.user != user %}
+                <a href="{% url 'compose_message' user_id=user.pk %}" class="btn-secondary">Message</a>
+            {% endif %}
+        </div>
+    {% empty %}
+        <p>No alumni profiles found.</p>
+    {% endfor %}
+    </div>
+{% endblock %}
